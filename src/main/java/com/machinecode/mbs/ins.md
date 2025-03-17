@@ -98,4 +98,4 @@
   (Read more about it in the probability distribution chat in gpt)
 
 * @EnableJpaAuditing at the application level, @EntityListener(AuditingEntityListener.class) in the base model,
-  and @CreatedDate and @Temporal(TemporalType) above the variables.
+  and @CreatedDate and @Temporal(TemporalType) above the createdAt and the @LastCreatedAt above the lastModifiedAt.
