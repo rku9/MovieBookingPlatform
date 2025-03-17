@@ -20,6 +20,7 @@ public class UserController {
             userSignUpResponseDto.setUserId(user.getId());
             userSignUpResponseDto.setResponseStatus(ResponseStatus.SUCCESS);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             userSignUpResponseDto.setResponseStatus(ResponseStatus.FAILURE);
         }
         return userSignUpResponseDto;

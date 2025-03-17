@@ -9,10 +9,11 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
+import java.util.Optional;
 import java.util.StringTokenizer;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    User findUserByEmail(String email);
+    Optional<User> findUserByEmail(String email);
 }

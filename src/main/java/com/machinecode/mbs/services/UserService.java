@@ -30,8 +30,10 @@ public class UserService {
     }
     public User signUp(String name, String email, String password) {
         //check if the user already exists through the email.
-        User user = userRepository.findUserByEmail(email);
-        if(user==null){
+        Optional<User> optionalUser = userRepository.findUserByEmail(email);
+        User user = optionalUser.orElse(new User());
+        if(optionalUser.isEmpty()){
+            user = new User();
             user.setName(name);
             user.setEmail(email);
 //            user.setPassword(password);
@@ -44,15 +46,17 @@ public class UserService {
     }
     public User login(String email, String password) throws UserNotFoundException {
         boolean ans = true;
-        User user = userRepository.findUserByEmail(email);
-        System.out.println(ans);
-        if(user!=null){
+        Optional<User> optionalUser = userRepository.findUserByEmail(email);
+//        System.out.println(ans);
+
+        if(optionalUser.isPresent()){
             ans = true;
         }
         if(!ans){
             throw new UserNotFoundException("User with the email: "+email+" does not exist.");
         }
-        System.out.println(ans);
+        User user = optionalUser.get();
+//        System.out.println(ans);
         //check for the password.
         ans = ans & bCryptPasswordEncoder.matches(password, user.getPassword());
         System.out.println(ans);

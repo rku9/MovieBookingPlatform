@@ -26,22 +26,33 @@ class MbsApplicationTests {
 //        userSignUpRequestDto.setPassword("beefcake");
 //        UserSignUpResponseDto userSignUpResponseDto = userController.signUp(userSignUpRequestDto);
 //        System.out.println(userSignUpResponseDto.getUserId());
-//        System.out.println("sdkfjbduf ");
+////        System.out.println("sdkfjbduf ");
 //    }
+//@Test
+//public void testLogin() throws UserNotFoundException {
+//    LoginRequestDto loginRequestDto = new LoginRequestDto();
+////    loginRequestDto.setEmail("Eric Cartman").;
+//    loginRequestDto.setEmail("EricCartman@skrewU.com");
+//    loginRequestDto.setPassword("beefcae");
+//    LoginResponseDto loginResponseDto = userController.login(loginRequestDto);
+//    if(loginResponseDto.getLoginStatus()== LoginResponseStatus.SUCCESS){
+//        System.out.println("Login Successful");
+//    } else {
+//        System.out.println("Login Failed");
+//    }
+////    System.out.println(loginResponseDto.getUserId());
+////    System.out.println("sdkfjbduf ");
+//}
 @Test
-public void testLogin() throws UserNotFoundException {
-    LoginRequestDto loginRequestDto = new LoginRequestDto();
-//    loginRequestDto.setEmail("Eric Cartman").;
-    loginRequestDto.setEmail("EricCartman@skrewU.com");
-    loginRequestDto.setPassword("beefcae");
-    LoginResponseDto loginResponseDto = userController.login(loginRequestDto);
-    if(loginResponseDto.getLoginStatus()== LoginResponseStatus.SUCCESS){
-        System.out.println("Login Successful");
-    } else {
-        System.out.println("Login Failed");
-    }
-//    System.out.println(loginResponseDto.getUserId());
-//    System.out.println("sdkfjbduf ");
+public void testSignUp() {
+    UserSignUpRequestDto userSignUpRequestDto = new UserSignUpRequestDto();
+    userSignUpRequestDto.setName("ManBearP");
+    userSignUpRequestDto.setEmail("MBP@excelsior.com");
+    userSignUpRequestDto.setPassword("alGore");
+    UserSignUpResponseDto userSignUpResponseDto = userController.signUp(userSignUpRequestDto);
+    System.out.println(userSignUpResponseDto.getUserId());
+    System.out.println(userSignUpResponseDto.getResponseStatus());
+//        System.out.println("sdkfjbduf ");
 }
 
 }

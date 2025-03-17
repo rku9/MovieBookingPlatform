@@ -96,3 +96,6 @@
   Every read of a volatile variable is fetched directly from main memory.
   Thus, if one thread updates a volatile variable, all other threads immediately see the latest value.
   (Read more about it in the probability distribution chat in gpt)
+
+* @EnableJpaAuditing at the application level, @EntityListener(AuditingEntityListener.class) in the base model,
+  and @CreatedDate and @Temporal(TemporalType) above the variables.
